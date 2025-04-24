@@ -8,57 +8,54 @@ import org.openqa.selenium.support.PageFactory;
 
 import genericUtilities.SeleniumUtility;
 
-public class InventoryPage extends SeleniumUtility{
+public class InventoryPage extends SeleniumUtility {
 
-
-	//Declaration
+	// Declaration
 	@FindBy(className = "product_sort_container")
 	private WebElement sortDropDown;
 
 	@FindBy(id = "react-burger-menu-btn")
 	private WebElement menuBtn;
 
-	@FindBy(linkText = "Logout")
-	private WebElement logoutLnk;
+	@FindBy(id = "logout_sidebar_link")
+	private WebElement logout;
 
 	@FindBy(id = "shopping_cart_container")
 	private WebElement cartContainerBtn;
 
-
-	//Intialization
-	public InventoryPage(WebDriver driver)
-	{
+	// Intialization
+	public InventoryPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 
-    //Utilization
+	// Utilization
 	public WebElement getSortDropDown() {
 		return sortDropDown;
 	}
 
-    public WebElement getMenuBtn() {
+	public WebElement getMenuBtn() {
 		return menuBtn;
 	}
 
 	public WebElement getLogoutLnk() {
-		return logoutLnk;
+		return logout;
 	}
 
 	public WebElement getCartContainerBtn() {
 		return cartContainerBtn;
 	}
 
-	//Business Library
+	// Business Library
 
 	/**
 	 * This method will click on a product and return the details to caller
+	 * 
 	 * @param driver
 	 * @param productname
 	 * @return
 	 */
-	public String clickOnAProduct(WebDriver driver, String productname)
-	{
-		WebElement ele = driver.findElement(By.xpath("//div[.='"+productname+"']"));
+	public String clickOnAProduct(WebDriver driver, String productname) {
+		WebElement ele = driver.findElement(By.xpath("//div[.='" + productname + "']"));
 		String productdetails = ele.getText();
 		ele.click();
 
@@ -68,15 +65,15 @@ public class InventoryPage extends SeleniumUtility{
 	/**
 	 * This method will click on lowest priced product and return the product
 	 * details to caller
+	 * 
 	 * @param driver
 	 * @param ProductName
 	 * @param sortOption
 	 * @return
 	 */
-	public String clickOnLowestPriceProduct(WebDriver driver, String ProductName, String sortOption)
-	{
+	public String clickOnLowestPriceProduct(WebDriver driver, String ProductName, String sortOption) {
 		handleDropDown(sortDropDown, sortOption);
-		WebElement ele = driver.findElement(By.xpath("//div[.='"+ProductName+"']"));
+		WebElement ele = driver.findElement(By.xpath("//div[.='" + ProductName + "']"));
 		String productDetails = ele.getText();
 		ele.click();
 
@@ -86,17 +83,15 @@ public class InventoryPage extends SeleniumUtility{
 	/**
 	 * This method will perform logout operation
 	 */
-	public void logoutOfApp()
-	{
+	public void logoutOfApp() {
 		menuBtn.click();
-		logoutLnk.click();
+		logout.click();
 	}
 
 	/**
 	 * This method will click on cart container button
 	 */
-	public void clickOnCartContainer()
-	{
+	public void clickOnCartContainer() {
 		cartContainerBtn.click();
 	}
 
