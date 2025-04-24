@@ -1,8 +1,9 @@
 package inventoryTests;
+
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -18,9 +19,8 @@ import objectRepository.LoginPage;
 
 @Listeners(genericUtilities.ListenerImplementation.class)
 public class AddProductToCartTest extends BaseClass {
-@Test(groups="SmokeSuite")
-	public void tc_001_AddProductToCartTest() throws IOException
-	{
+	@Test(groups = "SmokeSuite")
+	public void tc_001_AddProductToCartTest() throws IOException {
 		// Create Object Of All Required Utility Classes
 		FileUtility futil = new FileUtility();
 		SeleniumUtility sutil = new SeleniumUtility();
@@ -35,7 +35,7 @@ public class AddProductToCartTest extends BaseClass {
 		String PRODUCTNAME = futil.readDataFromExcel("Product", 1, 2);
 
 		// Step 1: Launch the browser
-		WebDriver driver = new EdgeDriver();
+		WebDriver driver = new ChromeDriver();
 		sutil.maximizeWindow(driver);
 		sutil.addImplicitlywait(driver);
 
@@ -56,21 +56,20 @@ public class AddProductToCartTest extends BaseClass {
 
 		// Step 6: Navigate to Cart
 		ip.clickOnCartContainer();
-	//	Assert.fail();
+		// Assert.fail();
 
 		// Step 7: Validate the product in Cart
-	    CartPage cp = new CartPage(driver);
-	    String pInCart = cp.getProductName();
+		CartPage cp = new CartPage(driver);
+		String pInCart = cp.getProductName();
 
-	    Assert.assertEquals(pInCart, pAddedToCart);
+		Assert.assertEquals(pInCart, pAddedToCart);
 
-	    Assert.assertTrue(pInCart.equals(pAddedToCart));
-	    System.out.println(pInCart);
+		Assert.assertTrue(pInCart.equals(pAddedToCart));
+		System.out.println(pInCart);
 
 		// Step 8: Logout of App
 		ip.logoutOfApp();
 		driver.quit();
-
 
 	}
 
