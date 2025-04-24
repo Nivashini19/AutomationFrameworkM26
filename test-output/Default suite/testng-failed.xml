@@ -3,17 +3,18 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="inventoryTests.AddProductToCartTest">
+      <class name="inventoryTests.AddLowestPriceProductToCartTest">
         <methods>
           <include name="amConfig"/>
           <include name="bcConfig"/>
           <include name="bmConfig"/>
-          <include name="tc_001_AddProductToCartTest"/>
           <include name="acConfig"/>
           <include name="bsConfig"/>
+          <include name="smaple"/>
           <include name="asConfig"/>
+          <include name="addLowestPriceProductTest"/>
         </methods>
-      </class> <!-- inventoryTests.AddProductToCartTest -->
+      </class> <!-- inventoryTests.AddLowestPriceProductToCartTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -11,9 +11,9 @@ import objectRepository.CartPage;
 import objectRepository.InventoryItemPage;
 import objectRepository.InventoryPage;
 
-public class AddLowestPriceProductToCartTest extends BaseClass{
+public class AddLowestPriceProductToCartTest extends BaseClass {
 
-	@Test(groups="RegressionSuite")
+	@Test(groups = "RegressionSuite")
 	public void addLowestPriceProductTest() throws EncryptedDocumentException, IOException {
 
 		// Read Test Data From Excel File
@@ -39,10 +39,10 @@ public class AddLowestPriceProductToCartTest extends BaseClass{
 
 		System.out.println(pInCart);
 	}
+
 	@Test(retryAnalyzer = genericUtilities.RetryAnalyserImplementation.class)
-	public void smaple()
-	{
-		//Assert.fail();
+	public void smaple() {
+		// Assert.fail();
 		System.out.println("Hello");
 	}
 

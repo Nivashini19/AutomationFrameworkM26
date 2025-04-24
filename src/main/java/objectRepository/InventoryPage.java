@@ -17,8 +17,8 @@ public class InventoryPage extends SeleniumUtility {
 	@FindBy(id = "react-burger-menu-btn")
 	private WebElement menuBtn;
 
-	@FindBy(id = "logout_sidebar_link")
-	private WebElement logout;
+	@FindBy(linkText = "Logout")
+	private WebElement logoutLink;
 
 	@FindBy(id = "shopping_cart_container")
 	private WebElement cartContainerBtn;
@@ -38,7 +38,7 @@ public class InventoryPage extends SeleniumUtility {
 	}
 
 	public WebElement getLogoutLnk() {
-		return logout;
+		return logoutLink;
 	}
 
 	public WebElement getCartContainerBtn() {
@@ -85,7 +85,7 @@ public class InventoryPage extends SeleniumUtility {
 	 */
 	public void logoutOfApp() {
 		menuBtn.click();
-		logout.click();
+		logoutLink.click();
 	}
 
 	/**

@@ -17,7 +17,7 @@ public class AddProductTocartUisngDDTandGU {
 
 	public static void main(String[] args) throws IOException {
 
-		//Create Object Of All Required Utility Classes
+		// Create Object Of All Required Utility Classes
 		FileUtility fUtil = new FileUtility();
 		SeleniumUtility sUtil = new SeleniumUtility();
 		JavaUtility jUtil = new JavaUtility();
@@ -40,24 +40,23 @@ public class AddProductTocartUisngDDTandGU {
 
 		// Step 3: login To Application
 
-		LoginPage lp=new LoginPage(driver);
-		lp.loginToApp(USERNAME,PASSWORD);
+		LoginPage lp = new LoginPage(driver);
+		lp.loginToApp(USERNAME, PASSWORD);
 
 		// Step 4: Click on a Product
 
-		InventoryPage ip=new InventoryPage(driver);
+		InventoryPage ip = new InventoryPage(driver);
 		ip.clickOnAProduct(driver, PRODUCTNAME);
 
 		// Step 5: Add the Product To Cart
-		InventoryItemPage itempage=new InventoryItemPage(driver);
-		itempage.getAddToCart(PRODUCTNAME);
-
+		InventoryItemPage itempage = new InventoryItemPage(driver);
+		itempage.getAddTocart();
 
 		// Step 6: Navigate to Cart
 		ip.clickOnCartContainer();
 
-		//Capture Screenshots for reference
-		String screenshotname = "Tc_001"+jUtil.getSystemDateInFormat();
+		// Capture Screenshots for reference
+		String screenshotname = "Tc_001" + jUtil.getSystemDateInFormat();
 		String path = sUtil.captureScreenShot(driver, screenshotname);
 		System.out.println(path);
 
@@ -76,4 +75,3 @@ public class AddProductTocartUisngDDTandGU {
 	}
 
 }
-
